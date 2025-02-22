@@ -1,13 +1,13 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types"; // For prop validation (optional)
 import axios from "axios";
 import { toast } from "react-toastify";
-
-export const AppContent = createContext();
+import { AppContent } from "./AppContext.js";
 
 export const AppContextProvider = (props) => {
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+  const backendUrl =
+    import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(false);
 
