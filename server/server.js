@@ -19,7 +19,7 @@ app.use(
     origin: (origin, callback) => {
       const allowedOrigins = [
         "https://daily-report.vercel.app",
-        "http://localhost:5174",
+        "http://localhost:5176",
       ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
