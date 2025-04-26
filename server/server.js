@@ -1,3 +1,4 @@
+
 import express from "express";
 import cookieParser from "cookie-parser";
 import "dotenv/config";
@@ -12,7 +13,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cookieParser());
-
 
 app.use(
   cors({
@@ -32,7 +32,6 @@ app.use(
   })
 );
 
-
 app.get("/", (req, res) => {
   res.json("hello from server");
 });
@@ -42,9 +41,13 @@ app.use("/api/user", userRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json("Something broke!");
+  res.status(500).json({ message: "Something broke!", error: err });
 });
 
 app.listen(PORT, () => {
   console.log(`server is running on port http://localhost:${PORT}`);
 });
+
+
+// 👇 Export handler for Vercel deployment
+export default app;
