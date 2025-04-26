@@ -44,10 +44,5 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something broke!", error: err });
 });
 
-app.listen(PORT, () => {
-  console.log(`server is running on port http://localhost:${PORT}`);
-});
-
-
 // 👇 Export handler for Vercel deployment
 export default app;
